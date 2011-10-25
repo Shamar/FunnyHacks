@@ -5,6 +5,7 @@ namespace Poker
 {
     public sealed class Deck : IDeck
     {
+        #region static stuffs
         private static readonly Card[] _allCards;
         static Deck()
         {
@@ -29,6 +30,7 @@ namespace Poker
             }
             return array;
         }
+        #endregion static stuffs
         
         public Deck (SerialNumber serial)
         {
