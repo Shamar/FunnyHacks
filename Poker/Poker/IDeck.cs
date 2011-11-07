@@ -40,6 +40,18 @@ namespace Poker
         SerialNumber Serial { get; }
         
         void Shuffle(DateTime when);
+        
+        event EventHandler<ShuffleEventArg> Shuffled;
+    }
+    
+    public sealed class ShuffleEventArg : EventArgs
+    {
+        public ShuffleEventArg(DateTime when)
+        {
+            When = when;
+        }
+        
+        public readonly DateTime When;
     }
 }
 

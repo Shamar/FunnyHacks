@@ -42,6 +42,16 @@ namespace Poker
         private readonly SerialNumber _serial;
         private DateTime? _lastShuffleTime;
         
+        private void FireShuffled(DateTime? previousShuffleTime, DateTime when)
+        {
+            if(previousShuffleTime.HasValue && previousShuffleTime.Value != when)
+            {
+                EventHandler<ShuffleEventArg> handler = Shuffled;
+                if(null != handler)
+                    handler(this, new ShuffleEventArg(when));
+            }
+        }
+        
         #region IDeck implementation
         public SerialNumber Serial
         {
@@ -50,8 +60,14 @@ namespace Poker
         
         public void Shuffle (DateTime when)
         {
+            DateTime? previousShuffleTime = _lastShuffleTime;
+            
             _lastShuffleTime = when;
+            
+            FireShuffled(previousShuffleTime, when);
         }
+        
+        public event EventHandler<ShuffleEventArg> Shuffled;
         #endregion
 
         #region IEnumerable[Poker.Card] implementation
