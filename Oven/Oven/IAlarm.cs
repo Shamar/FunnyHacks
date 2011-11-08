@@ -3,10 +3,8 @@ using System;
 namespace Oven
 {
     public interface IAlarm
-    {
-        OvenSKU Oven { get; }
-        
-        
+    {		
+        void Track(Cycle cycle);
         
         event EventHandler<EventArgs> Raising;
     }
