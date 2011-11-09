@@ -4,11 +4,13 @@ namespace Oven
 {
     public interface IAlarm
     {
-        OvenSKU Oven { get; }
+        Uri Identity { get; }
         
+        void RingEach(Cycle cycles);
         
+        void StopRinging();
         
-        event EventHandler<EventArgs> Raising;
+        event EventHandler<EventArgs> Ringing;
     }
 }
 

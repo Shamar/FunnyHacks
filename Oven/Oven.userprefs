@@ -1,8 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Oven/MyClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Oven/IOven.cs">
     <Files>
-      <File FileName="Oven/MyClass.cs" Line="1" Column="1" />
+      <File FileName="Oven/IOven.cs" Line="1" Column="1" />
+      <File FileName="Oven/IAlarm.cs" Line="1" Column="1" />
+      <File FileName="Oven/IDevice.cs" Line="1" Column="1" />
+      <File FileName="Oven/Cycle.cs" Line="1" Column="1" />
+      <File FileName="Oven/OvenSKU.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

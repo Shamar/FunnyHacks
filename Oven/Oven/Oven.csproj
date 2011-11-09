@@ -34,9 +34,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Cycle.cs" />
-    <Compile Include="OwenSKU.cs" />
     <Compile Include="IOven.cs" />
     <Compile Include="IAlarm.cs" />
+    <Compile Include="OvenSKU.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
