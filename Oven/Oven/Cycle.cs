@@ -14,7 +14,7 @@ namespace Oven
             _start = startingTime;
             _duration = duration;
         }
-        
+
         private Cycle(DateTime startingTime, TimeSpan duration, uint quantity)
             : this(startingTime, duration)
         {

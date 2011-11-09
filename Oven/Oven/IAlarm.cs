@@ -9,6 +9,7 @@ namespace Oven
         void RingEach(Cycle cycles);
         
         void StopRinging();
+
         
         event EventHandler<EventArgs> Ringing;
     }
