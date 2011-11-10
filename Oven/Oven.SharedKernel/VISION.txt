@@ -1,0 +1,1 @@
+This context the common concepts of cooking, shared between the different bounded contexts.

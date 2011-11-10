@@ -7,9 +7,11 @@ namespace iOven
 {
     public interface IReporter : ITimer
     {
-        IEnumerable<IReport> Reports { get; }
+        IEnumerable<Report> Reports { get; }
         
-        void Observe(Oven.Control.IOven oven, Minute interval);
+        void SetReportInterval(Minute interval);
+		
+		event EventHandler<InfoEventArgs<OvenUri>> NewReportCreated;
     }
 }
 

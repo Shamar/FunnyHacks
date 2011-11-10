@@ -18,12 +18,51 @@ namespace Oven
                 return new Time(DateTime.UtcNow);
             }
         }
+		
+		#region algebra
+		
+		public static Minute operator -(Time first, Time second)
+		{
+			return new Minute(first._utc.Minute - second._utc.Minute);
+		}
         
-        public Time Add(Minute minutes)
-        {
-            return new Time(_utc.Add(minutes.AsTimeSpan()));
-        }
+		public static Time operator +(Time time, Minute interval)
+		{
+			return new Time(time._utc.Add(interval.AsTimeSpan()));
+		}
         
+		public static bool operator ==(Time first, Time second)
+		{
+			return first._utc.Minute == second._utc.Minute;
+		}
+        
+		public static bool operator !=(Time first, Time second)
+		{
+			return first._utc.Minute != second._utc.Minute;
+		}
+		
+		public static bool operator <(Time first, Time second)
+		{
+			return first._utc.Minute < second._utc.Minute;
+		}
+		
+		public static bool operator >(Time first, Time second)
+		{
+			return first._utc.Minute > second._utc.Minute;
+		}
+		
+		public static bool operator <=(Time first, Time second)
+		{
+			return first._utc.Minute <= second._utc.Minute;
+		}
+		
+		public static bool operator >=(Time first, Time second)
+		{
+			return first._utc.Minute >= second._utc.Minute;
+		}
+		
+		#endregion algebra
+		
         public DateTime AsUtc()
         {
             return _utc;

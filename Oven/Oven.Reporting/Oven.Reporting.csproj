@@ -34,7 +34,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="IOven.cs" />
-    <Compile Include="IReport.cs" />
+    <Compile Include="IState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -42,5 +42,8 @@
       <Project>{BF485713-CB02-44F2-860F-F38A369308D6}</Project>
       <Name>Oven.SharedKernel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VISION.txt" />
   </ItemGroup>
 </Project>

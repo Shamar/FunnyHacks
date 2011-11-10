@@ -1,0 +1,2 @@
+A Oven can cook for an amount of Minutes with a defined Temperature. 
+It can Alert through AlarmBells and can Syncronize Timers.

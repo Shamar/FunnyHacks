@@ -1,0 +1,1 @@
+In the context of reporting, a Oven is an entity that has a State.

@@ -8,9 +8,9 @@ namespace Oven.Control
         
         bool IsRinging { get; }
         
-        event EventHandler<EventArgs> Ringing;
+        event EventHandler<InfoEventArgs<Time>> Ringing;
         
-        event EventHandler<EventArgs> Muting;
+        event EventHandler<InfoEventArgs<Time>> Muting;
     }
 }
 

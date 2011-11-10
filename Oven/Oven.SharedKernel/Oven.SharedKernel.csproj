@@ -40,6 +40,10 @@
     <Compile Include="OvenUri.cs" />
     <Compile Include="InfoEventArgs.cs" />
     <Compile Include="Time.cs" />
+    <Compile Include="Temperature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="VISION.txt" />
+  </ItemGroup>
 </Project>

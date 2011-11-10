@@ -6,7 +6,7 @@ namespace Oven
     {
         TimerId Address { get; }
         
-        Minute Elapsed { get; }
+        Minute? Elapsed { get; }
         
         void StartAt(Time date);
         
