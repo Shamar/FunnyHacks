@@ -1,7 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oven", "Oven\Oven.csproj", "{BF485713-CB02-44F2-860F-F38A369308D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EAE4A85B-13EB-421B-A48E-15A9BBEBB071}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iOven", "iOven\iOven.csproj", "{013741E4-8D96-4999-B69F-E1A490C5B853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oven.Control", "Oven.Control\Oven.Control.csproj", "{39B25A8A-7EDE-4599-8AA5-3E77380D6084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oven.Reporting", "Oven.Reporting\Oven.Reporting.csproj", "{3315D4D6-BCD2-4C02-8158-D8BF06B229EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oven.SharedKernel", "Oven.SharedKernel\Oven.SharedKernel.csproj", "{BF485713-CB02-44F2-860F-F38A369308D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{7110AF5F-CC22-4EF2-9775-CC76F718B27A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iOven.GUI", "iOven.GUI\iOven.GUI.csproj", "{3A8D5233-5B3A-4E9F-AA46-FA65094EE8B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oven.Simulator", "Oven.Simulator\Oven.Simulator.csproj", "{18C5F54C-44CC-4FDD-BD7C-657BDEAF4984}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +23,40 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{013741E4-8D96-4999-B69F-E1A490C5B853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013741E4-8D96-4999-B69F-E1A490C5B853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013741E4-8D96-4999-B69F-E1A490C5B853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013741E4-8D96-4999-B69F-E1A490C5B853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C5F54C-44CC-4FDD-BD7C-657BDEAF4984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C5F54C-44CC-4FDD-BD7C-657BDEAF4984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C5F54C-44CC-4FDD-BD7C-657BDEAF4984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C5F54C-44CC-4FDD-BD7C-657BDEAF4984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3315D4D6-BCD2-4C02-8158-D8BF06B229EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3315D4D6-BCD2-4C02-8158-D8BF06B229EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3315D4D6-BCD2-4C02-8158-D8BF06B229EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3315D4D6-BCD2-4C02-8158-D8BF06B229EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B25A8A-7EDE-4599-8AA5-3E77380D6084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B25A8A-7EDE-4599-8AA5-3E77380D6084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B25A8A-7EDE-4599-8AA5-3E77380D6084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B25A8A-7EDE-4599-8AA5-3E77380D6084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8D5233-5B3A-4E9F-AA46-FA65094EE8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8D5233-5B3A-4E9F-AA46-FA65094EE8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8D5233-5B3A-4E9F-AA46-FA65094EE8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8D5233-5B3A-4E9F-AA46-FA65094EE8B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF485713-CB02-44F2-860F-F38A369308D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF485713-CB02-44F2-860F-F38A369308D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF485713-CB02-44F2-860F-F38A369308D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF485713-CB02-44F2-860F-F38A369308D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{013741E4-8D96-4999-B69F-E1A490C5B853} = {EAE4A85B-13EB-421B-A48E-15A9BBEBB071}
+		{39B25A8A-7EDE-4599-8AA5-3E77380D6084} = {EAE4A85B-13EB-421B-A48E-15A9BBEBB071}
+		{3315D4D6-BCD2-4C02-8158-D8BF06B229EC} = {EAE4A85B-13EB-421B-A48E-15A9BBEBB071}
+		{BF485713-CB02-44F2-860F-F38A369308D6} = {EAE4A85B-13EB-421B-A48E-15A9BBEBB071}
+		{3A8D5233-5B3A-4E9F-AA46-FA65094EE8B4} = {7110AF5F-CC22-4EF2-9775-CC76F718B27A}
+		{18C5F54C-44CC-4FDD-BD7C-657BDEAF4984} = {7110AF5F-CC22-4EF2-9775-CC76F718B27A}
+	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Oven\Oven.csproj
+		StartupItem = Oven.Simulator\Oven.Simulator.csproj
 	EndGlobalSection
 EndGlobal
