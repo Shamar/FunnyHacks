@@ -39,6 +39,7 @@
     <Compile Include="Report.cs" />
     <Compile Include="Cook.cs" />
     <Compile Include="AlarmBell.cs" />
+    <Compile Include="TimerBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

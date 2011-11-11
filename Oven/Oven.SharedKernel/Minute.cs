@@ -27,6 +27,18 @@ namespace Oven
             else
                 return string.Format ("{0} minutes", _quantity);
         }
+
+		public override bool Equals (object obj)
+		{
+			if(obj is Time)
+				return Equals((Minute)obj);
+			return false;
+		}
+		
+		public override int GetHashCode ()
+		{
+			return _quantity;
+		}
     }
 }
 

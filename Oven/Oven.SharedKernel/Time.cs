@@ -82,6 +82,13 @@ namespace Oven
         {
             return _utc.GetHashCode ();
         }
+				
+		public override bool Equals (object obj)
+		{
+			if(obj is Time)
+				return Equals((Time)obj);
+			return false;
+		}
         
         #region IComparable[Time] implementation
         public int CompareTo (Time other)

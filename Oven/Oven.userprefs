@@ -1,24 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Oven.Control\IOven.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOven\AlarmBell.cs">
     <Files>
-      <File FileName="Oven.SharedKernel\Time.cs" Line="18" Column="50" />
-      <File FileName="iOven\ICook.cs" Line="9" Column="23" />
-      <File FileName="iOven\IReporter.cs" Line="12" Column="49" />
-      <File FileName="Oven.SharedKernel\InfoEventArgs.cs" Line="6" Column="46" />
-      <File FileName="Oven.Control\IOven.cs" Line="22" Column="45" />
-      <File FileName="Oven.Reporting\IOven.cs" Line="7" Column="37" />
-      <File FileName="Oven.Reporting\IState.cs" Line="10" Column="30" />
-      <File FileName="Oven.SharedKernel\Minute.cs" Line="1" Column="1" />
-      <File FileName="c:\Projects\OpenSource\FunnyHacks\Oven\iOven.GUI\MainWindow.cs" Line="14" Column="25" />
-      <File FileName="Oven.SharedKernel\VISION.txt" Line="2" Column="1" />
-      <File FileName="Oven.Reporting\VISION.txt" Line="1" Column="67" />
-      <File FileName="Oven.SharedKernel\Temperature.cs" Line="6" Column="27" />
-      <File FileName="Oven.Control\VISION.txt" Line="2" Column="59" />
-      <File FileName="iOven\Report.cs" Line="22" Column="1" />
-      <File FileName="Oven.SharedKernel\ITimer.cs" Line="21" Column="1" />
-      <File FileName="Oven.Control\CookingEventArgs.cs" Line="6" Column="38" />
-      <File FileName="iOven\IOven.cs" Line="1" Column="1" />
+      <File FileName="iOven\TimerBase.cs" Line="44" Column="18" />
+      <File FileName="iOven\AlarmBell.cs" Line="23" Column="11" />
+      <File FileName="Oven.Control\IAlarmBell.cs" Line="7" Column="57" />
+      <File FileName="Oven.SharedKernel\Minute.cs" Line="8" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

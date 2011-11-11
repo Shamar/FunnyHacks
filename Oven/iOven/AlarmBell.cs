@@ -1,89 +1,91 @@
 using System;
 using Oven;
 using Oven.Control;
+using System.Runtime.Serialization;
+using ThreadingTimer = System.Threading.Timer;
+using TimerCallback = System.Threading.TimerCallback;
+using Timeout = System.Threading.Timeout;
 
 namespace iOven
 {
 	[Serializable]
-	public sealed class AlarmBell : IAlarmBell
+	public sealed class AlarmBell : TimerBase, IAlarmBell
 	{
-		private readonly TimerId _id;
-		
-		private Time? _startTime;
-		private Minute _interval;
-		
-		public AlarmBell (Uri cookUri)
+		private static Uri GetAlarmUri(Uri cookUri)
 		{
 			if(null == cookUri)
-				throw new ArgumentNullException("cookUri");
-			_id = new TimerId(cookUri.MakeRelativeUri(new Uri("alarm/")).ToString());
+				return null;
+			return cookUri.MakeRelativeUri(new Uri("alarm/"));
 		}
 		
-		private void FireEvent(EventHandler<InfoEventArgs<Time>> handler, Time time)
+		private bool _ringing = false;
+		
+		private ThreadingTimer _timer;
+		
+		private int _duration;
+		
+		public AlarmBell (Uri cookUri)
+			: base(GetAlarmUri(cookUri))
 		{
-			if(null != handler)
-				handler(this, new InfoEventArgs<Time>(time));
+			_timer = new ThreadingTimer(new TimerCallback(Mute));
 		}
+		
+		
 
 		#region IAlarmBell implementation
 		public event EventHandler<InfoEventArgs<Time>> Ringing;
 
 		public event EventHandler<InfoEventArgs<Time>> Muting;
 
-		public void RingAtEach (Minute interval)
+		public void RingAtEach (Minute interval, Minute duration)
 		{
-			_interval = interval;
+			_duration = duration.AsTimeSpan().Milliseconds;
+			EmptySchedules();
+			base.AddPeriodicTask(interval, Ring);
 		}
-
+		
+		private void Ring()
+		{
+			if(!_ringing)
+			{
+				_ringing = true;
+				_timer.Change(_duration, Timeout.Infinite);
+				FireEvent(Ringing, Time.Now);
+			}
+		}
+		
+		private void Mute(Object state)
+		{
+			if(_ringing)
+			{
+				_ringing = false;
+				FireEvent(Muting, Time.Now);
+			}
+		}
+		
 		public bool IsRinging
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return _ringing;
 			}
 		}
-		#endregion
+		#endregion IAlarmBell implementation
 
-		#region ITimer implementation
-		public event EventHandler<InfoEventArgs<Time>> Started;
-
-		public event EventHandler<InfoEventArgs<Time>> Stopped;
-
-		public void StartAt (Time time)
+		#region ISerializable implementation
+		protected AlarmBell(SerializationInfo info, StreamingContext context)
+			: base(info, context)
 		{
-			bool started = !_startTime.HasValue && time < Time.Now;
-			_startTime = time;
-			if(started)
-				FireEvent(Started, time);
+			_duration = info.GetInt32("d");
 		}
-
-		public void StopAt (Time time)
+		
+		protected override void GetObjectData (SerializationInfo info, StreamingContext context)
 		{
-			if(_startTime.HasValue && _startTime.Value > time)
-				throw new ArgumentOutOfRangeException("time");
-			
-			_startTime = null;
-			FireEvent(Stopped, time);
+			base.GetObjectData (info, context);
+			info.AddValue("d", _duration);
 		}
+		#endregion ISerializable implementation
 
-		public TimerId Address
-		{
-			get
-			{
-				return _id;
-			}
-		}
-
-		public Minute? Elapsed
-		{
-			get
-			{
-				if(!_startTime.HasValue)
-					return null;
-				return Time.Now - _startTime.Value;
-			}
-		}
-		#endregion
 	}
 }
 

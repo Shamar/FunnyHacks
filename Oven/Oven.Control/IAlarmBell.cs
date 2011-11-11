@@ -4,7 +4,7 @@ namespace Oven.Control
 {
     public interface IAlarmBell : ITimer
     {
-        void RingAtEach(Minute interval);
+        void RingAtEach(Minute interval, Minute duration);
         
         bool IsRinging { get; }
         
