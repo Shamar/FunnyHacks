@@ -11,7 +11,7 @@ namespace iOven
         
         void SetReportInterval(Minute interval);
 		
-		event EventHandler<InfoEventArgs<OvenUri>> NewReportCreated;
+		event EventHandler<InfoEventArgs<Report>> NewReportCreated;
     }
 }
 

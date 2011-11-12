@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{013741E4-8D96-4999-B69F-E1A490C5B853}</ProjectGuid>
+    <ProjectGuid>{3A0CECFC-8266-4F05-A046-BC82DCAC0526}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>iOven</RootNamespace>
-    <AssemblyName>iOven</AssemblyName>
+    <RootNamespace>Oven.SharedKernel</RootNamespace>
+    <AssemblyName>Oven.SharedKernel.Base</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,39 +33,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="ICook.cs" />
-    <Compile Include="IReporter.cs" />
-    <Compile Include="Report.cs" />
-    <Compile Include="Cook.cs" />
-    <Compile Include="Reporter.cs" />
-    <Compile Include="ReportingOvenProxy.cs" />
-    <Compile Include="ControlledOvenProxy.cs" />
+    <Compile Include="TimerBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Oven.SharedKernel\Oven.SharedKernel.csproj">
       <Project>{BF485713-CB02-44F2-860F-F38A369308D6}</Project>
       <Name>Oven.SharedKernel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Oven.Control\Oven.Control.csproj">
-      <Project>{39B25A8A-7EDE-4599-8AA5-3E77380D6084}</Project>
-      <Name>Oven.Control</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Oven.Reporting\Oven.Reporting.csproj">
-      <Project>{3315D4D6-BCD2-4C02-8158-D8BF06B229EC}</Project>
-      <Name>Oven.Reporting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Oven.SharedKernel.Base\Oven.SharedKernel.Base.csproj">
-      <Project>{3A0CECFC-8266-4F05-A046-BC82DCAC0526}</Project>
-      <Name>Oven.SharedKernel.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Epic.Prototype\Epic.Prototype.csproj">
-      <Project>{8F81CED8-B75F-4906-9BB9-B1163BE20709}</Project>
-      <Name>Epic.Prototype</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Oven.Control.Base\Oven.Control.Base.csproj">
-      <Project>{795D9ECF-8B45-4C6C-8A04-CB43339D3958}</Project>
-      <Name>Oven.Control.Base</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

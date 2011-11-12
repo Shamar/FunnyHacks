@@ -13,7 +13,7 @@ namespace Oven.Control
 		
 		Temperature CurrentTemperature { get; }
         
-        Time PlannedStop { get; }
+        Time? PlannedStop { get; }
         
         IEnumerable<TimerId> SycronizedTimers { get; }
         

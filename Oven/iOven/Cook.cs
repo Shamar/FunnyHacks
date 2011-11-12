@@ -1,6 +1,6 @@
 using System;
 using Oven;
-using Oven.Control;
+using Epic;
 
 namespace iOven
 {
@@ -8,10 +8,12 @@ namespace iOven
 	public sealed class Cook : ICook
 	{
 		private readonly string _name;
-		private readonly IOven _oven;
+		private readonly Oven.Control.IOven _oven;
 		private readonly Uri _uri;
+        private readonly Oven.Control.AlarmBell _alarm;
+        private readonly IReporter _reporter;
 		
-		public Cook (string publicIPv6, string name, IOven oven)
+		public Cook (string publicIPv6, string name, OvenUri oven, IServer server)
 		{
 			if(string.IsNullOrEmpty(publicIPv6))
 				throw new ArgumentNullException("clientPublicIPv6");
@@ -24,6 +26,8 @@ namespace iOven
 			UriBuilder builder = new UriBuilder("http", publicIPv6);
 			builder.Fragment = name + "/";
 			_uri = builder.Uri;
+            _alarm = new AlarmBell(_uri);
+            _reporter = new Reporter(_uri, new ReportingOven(oven, server));
 		}
 
 		#region ICook implementation
@@ -35,7 +39,7 @@ namespace iOven
 			}
 		}
 
-		public IOven Oven
+		public Oven.Control.IOven Oven
 		{
 			get
 			{
@@ -43,11 +47,11 @@ namespace iOven
 			}
 		}
 
-		public IAlarmBell AlarmBell
+		public Oven.Control.IAlarmBell AlarmBell
 		{
 			get
 			{
-				throw new NotImplementedException ();
+				return _alarm;
 			}
 		}
 

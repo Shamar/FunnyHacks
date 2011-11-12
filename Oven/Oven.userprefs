@@ -1,11 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOven\AlarmBell.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Oven.Control.Base/OvenSimulator.cs">
     <Files>
-      <File FileName="iOven\TimerBase.cs" Line="44" Column="18" />
-      <File FileName="iOven\AlarmBell.cs" Line="23" Column="11" />
-      <File FileName="Oven.Control\IAlarmBell.cs" Line="7" Column="57" />
-      <File FileName="Oven.SharedKernel\Minute.cs" Line="8" Column="40" />
+      <File FileName="iOven/Cook.cs" Line="1" Column="1" />
+      <File FileName="iOven/Reporter.cs" Line="1" Column="1" />
+      <File FileName="iOven/IReporter.cs" Line="1" Column="1" />
+      <File FileName="Oven.Control.Base/AlarmBell.cs" Line="1" Column="1" />
+      <File FileName="iOven/ControlledOvenProxy.cs" Line="11" Column="42" />
+      <File FileName="iOven/ReportingOvenProxy.cs" Line="26" Column="1" />
+      <File FileName="Oven.Control.Base/OvenSimulator.cs" Line="74" Column="35" />
+      <File FileName="Oven.SharedKernel.Base/TimerBase.cs" Line="37" Column="1" />
+      <File FileName="Oven.Control/IOven.cs" Line="16" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
