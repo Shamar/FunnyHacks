@@ -20,9 +20,9 @@ namespace Oven.Control
         void Syncronize(ITimer timer);
         
         void AlertThrough(IAlarmBell alarm);
-		
-        event EventHandler<InfoEventArgs<TimerId>> TimerSyncronized;
         
+        void Forget(ITimer timer);
+		
         event EventHandler<CookingEventArgs> CookingAdjusted;
         
         event EventHandler<InfoEventArgs<Time>> Cooked;

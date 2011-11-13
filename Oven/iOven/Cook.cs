@@ -1,6 +1,7 @@
 using System;
 using Oven;
 using Epic;
+using Oven.Control;
 
 namespace iOven
 {
@@ -22,12 +23,12 @@ namespace iOven
 			if(null == oven)
 				throw new ArgumentNullException("oven");
 			_name = name;
-			_oven = oven;
+			_oven = new ControlledOvenProxy(oven, server);
 			UriBuilder builder = new UriBuilder("http", publicIPv6);
 			builder.Fragment = name + "/";
 			_uri = builder.Uri;
             _alarm = new AlarmBell(_uri);
-            _reporter = new Reporter(_uri, new ReportingOven(oven, server));
+            _reporter = new Reporter(_uri, new ReportingOvenProxy(oven, server));
 		}
 
 		#region ICook implementation
@@ -47,7 +48,7 @@ namespace iOven
 			}
 		}
 
-		public Oven.Control.IAlarmBell AlarmBell
+		public IAlarmBell AlarmBell
 		{
 			get
 			{

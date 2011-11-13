@@ -63,7 +63,7 @@ namespace iOven
             }
         }
 
-        public Time PlannedStop {
+        public Time? PlannedStop {
             get {
                 throw new NotImplementedException ();
             }
