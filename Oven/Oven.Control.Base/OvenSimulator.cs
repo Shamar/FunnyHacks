@@ -19,7 +19,7 @@ namespace Oven.Control
             if(null == uri)
                 throw new ArgumentNullException("uri");
             _uri = uri;
-            _timers = new HashSet<ITimer>();
+            _timers = new HashSet<ITimer>(new TimerEqualityComparer());
         }
                 
         private void FireEvent<TEventArgs>(EventHandler<TEventArgs> handler, TEventArgs arg)
@@ -30,7 +30,9 @@ namespace Oven.Control
         }
 
         #region IOven implementation
-        public event EventHandler<InfoEventArgs<TimerId>> TimerSyncronized;
+        public event EventHandler<InfoEventArgs<TimerId>> Syncronizing;
+		
+		public event EventHandler<InfoEventArgs<TimerId>> Forgetting;
 
         public event EventHandler<CookingEventArgs> CookingAdjusted;
 
@@ -60,7 +62,7 @@ namespace Oven.Control
         {
             if(_timers.Add(timer))
             {
-                FireEvent(TimerSyncronized, new InfoEventArgs<TimerId>(timer.Address));
+                FireEvent(Syncronizing, new InfoEventArgs<TimerId>(timer.Address));
                 if(_startCooking.HasValue)
                     timer.StartAt(_startCooking.Value);
             }
@@ -74,6 +76,16 @@ namespace Oven.Control
                 Syncronize(alarm);
             }
         }
+		
+		public void Forget(ITimer timer)
+		{
+			if(_timers.Remove(timer))
+			{
+				FireEvent(Forgetting, new InfoEventArgs<TimerId>(timer.Address));
+				if(_startCooking.HasValue)
+					timer.StopAt(Time.Now);
+			}
+		}
 
         public bool IsCooking {
             get {
@@ -109,6 +121,32 @@ namespace Oven.Control
             }
         }
         #endregion
+		
+		#region TimerEqualityComparer
+		
+		[Serializable]
+		class TimerEqualityComparer : IEqualityComparer<ITimer>
+		{
+			#region IEqualityComparer[ITimer] implementation
+			public bool Equals (ITimer x, ITimer y)
+			{
+				if((null == x) != (null == y))
+					return false;
+				if(null == x)
+					return true;
+				return x.Address.Equals(y.Address);
+			}
+
+			public int GetHashCode (ITimer obj)
+			{
+				if(null == obj)
+					return 0;
+				return obj.Address.GetHashCode();
+			}
+			#endregion
+		}
+		
+		#endregion TimerEqualityComparer
     }
 }
 

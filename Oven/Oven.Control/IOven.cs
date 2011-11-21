@@ -23,6 +23,10 @@ namespace Oven.Control
         
         void Forget(ITimer timer);
 		
+		event EventHandler<InfoEventArgs<TimerId>> Syncronizing;
+		
+		event EventHandler<InfoEventArgs<TimerId>> Forgetting;
+		
         event EventHandler<CookingEventArgs> CookingAdjusted;
         
         event EventHandler<InfoEventArgs<Time>> Cooked;
